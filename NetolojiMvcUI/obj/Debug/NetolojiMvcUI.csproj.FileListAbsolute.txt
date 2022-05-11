@@ -85,3 +85,5 @@ C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\obj\Debug\NetolojiMv
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\obj\Debug\NetolojiMvcUI.csproj.CopyComplete
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\obj\Debug\NetolojiMvcUI.dll
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\obj\Debug\NetolojiMvcUI.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\bin\DataAccess.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\NetolojiMvcUI\bin\DataAccess.pdb

@@ -9,3 +9,11 @@ C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.cs
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.AccessControl.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.Permissions.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.AccessControl.xml
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.Permissions.xml
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\System.Security.Principal.Windows.xml

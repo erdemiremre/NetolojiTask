@@ -60,12 +60,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Concrete\AdoNet\AdCategoryDal.cs" />
     <Compile Include="Concrete\AdoNet\Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{48505603-21cc-477c-9605-a5eba806cc55}</Project>
