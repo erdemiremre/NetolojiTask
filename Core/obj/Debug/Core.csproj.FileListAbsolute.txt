@@ -1,0 +1,6 @@
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\bin\Debug\Core.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\bin\Debug\Core.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\obj\Debug\Core.csproj.AssemblyReference.cache
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\obj\Debug\Core.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\Core\obj\Debug\Core.pdb

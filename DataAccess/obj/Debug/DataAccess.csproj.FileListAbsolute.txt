@@ -1,0 +1,11 @@
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\Core.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\Entities.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\Core.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\bin\Debug\Entities.pdb
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\EMREPC\Documents\GitHub\NetolojiTask\DataAccess\obj\Debug\DataAccess.pdb
