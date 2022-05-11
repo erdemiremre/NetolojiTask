@@ -13,6 +13,7 @@ namespace Business.Constants
         public static string CategoryListed = "Kategori listelendi.";
         public static string CategoryAdded = "Kategori eklendi.";
         public static string CategoryDeleted = "Kategori Silindi";
+        public static string CategoryUpdated = "Kategori Güncellendi.";
 
     }
 }

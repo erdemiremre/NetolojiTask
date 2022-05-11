@@ -94,7 +94,7 @@ namespace DataAccess.Concrete.AdoNet
             using (SqlConnection conn = new SqlConnection(Conn))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("gp_CategoryAdd", conn);
+                SqlCommand cmd = new SqlCommand("gp_CategoryUpdate ", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoryId", entity.CategoryId);
                 cmd.Parameters.AddWithValue("@CategoryName", entity.CategoryName);

@@ -19,7 +19,8 @@ namespace NetolojiMvcUI.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            var result = _categoryService.GetAll();
+            return View(result.Data);
         }
 
         public ActionResult Add()
@@ -46,6 +47,19 @@ namespace NetolojiMvcUI.Controllers
             var find = _categoryService.Get(id);
             var result = _categoryService.Delete(find.Data);
             return Json(result.Message);
+        }
+
+        public ActionResult Update(int id)
+        {
+            var result = _categoryService.Get(id);
+            return View(result.Data);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Category category)
+        {
+            _categoryService.Update(category);
+            return RedirectToAction("Index", "Categories");
         }
     }
 }

@@ -45,5 +45,11 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CategoriesList);
         }
+
+        public IResult Update(Category category)
+        {
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.CategoryUpdated);
+        }
     }
 }

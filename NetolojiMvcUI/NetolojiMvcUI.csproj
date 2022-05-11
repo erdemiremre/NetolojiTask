@@ -170,6 +170,8 @@
     <Content Include="Views\Control\Index.cshtml" />
     <Content Include="Views\Shared\PartialListCategory.cshtml" />
     <Content Include="Views\Categories\PartialUpdateCategory.cshtml" />
+    <Content Include="Views\Categories\Update.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,40 @@
+﻿@model Entities.Concrete.Category
+@{
+    ViewBag.Title = "Update";
+}
+<br />
+<h2>Ürün Güncelle</h2>
+@using (Html.BeginForm("Update", "Categories", FormMethod.Post))
+{
+    <div class="col-md-9">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.HiddenFor(m => m.CategoryId)</td>
+                    <td>@Html.HiddenFor(m => m.CategoryId)</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(m => m.CategoryName)</td>
+                    <td> @Html.TextBoxFor(m => m.CategoryName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Description)</td>
+                    <td>@Html.TextBoxFor(m => m.Description)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>  <button type="submit" onclick="" class="btn btn-success">Güncelle</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+}
