@@ -1,0 +1,55 @@
+﻿
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Kategori Güncelleme Penceresi</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="KategoriAd">Kategori Adı</label>
+            <input class="form-control" data-val="true" id="newCategoryName" name="newCategoryName" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Açıklama</label>
+            <input class="form-control" data-val="true" id="newCategoryDesc" name="newCategoryDesc" type="text" value="">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="AddCategory()">Ekle</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Open()">Kapat</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function Open() {
+        $("#productAdd").html('');
+    }
+
+    function UpdateCategory() {
+        var categoryName = $('#newCategoryName').val();
+        let categoryDescription = $('#newCategoryDesc').val();
+
+        $.ajax({
+            url: "/Categories/Add",
+            type: "POST",
+            dataType: "json",
+            data: { CategoryName: categoryName, Description: categoryDescription },
+            success: function (data) {
+                if (data) {
+                    GetCategoryList();
+                } else {
+                    swal("Aynı isimli kategori mevcuttur.", "", "error");
+                }
+
+                console.log(data);
+                categoryName = "";
+            },
+            error: function () {
+                console.log("error!");
+            }
+        })
+    }
+
+</script>

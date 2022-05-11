@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.AdoNet
 {
-    class AdCategoryDal : Context, ICategoryDal
+    public class AdCategoryDal : Context, ICategoryDal
     {
         public void Add(Category entity)
         {
@@ -24,6 +24,7 @@ namespace DataAccess.Concrete.AdoNet
                 cmd.Parameters.Clear();
 
                 cmd.Parameters.AddWithValue("@CategoryName", entity.CategoryName);
+                cmd.Parameters.AddWithValue("@Description", entity.Description);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -43,9 +44,27 @@ namespace DataAccess.Concrete.AdoNet
             }
         }
 
-        public Category Get(Expression<Func<Category, bool>> filter)
+        public Category Get(int id)
         {
-            throw new NotImplementedException();
+            Category category = new Category();
+            using (SqlConnection conn = new SqlConnection(Conn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("gp_GetByIdCategory", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CategoryId", id);
+               
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    category.CategoryId = Convert.ToInt32(dr[0]);
+                    category.CategoryName = dr[1].ToString();
+                    category.Description = dr[2].ToString();
+                }
+                
+            }
+            return category;
         }
 
         public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)

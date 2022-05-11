@@ -1,4 +1,8 @@
-﻿using Ninject.Modules;
+﻿using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
+using Ninject.Modules;
+using DataAccess.Concrete.AdoNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +22,8 @@ namespace Business.DependencyResolvers.Ninject
 
 
             //Category for
-
+            Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
+            Bind<ICategoryDal>().To<AdCategoryDal>().InSingletonScope();
 
         }
     }

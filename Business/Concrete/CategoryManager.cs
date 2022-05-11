@@ -36,6 +36,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CategoryDeleted);
         }
 
+        public IDataResult<Category> Get(int id)
+        {
+            return new SuccessDataResult<Category>(_categoryDal.Get(id), Messages.CategoryListed);
+        }
+
         public IDataResult<List<Category>> GetAll()
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CategoriesList);

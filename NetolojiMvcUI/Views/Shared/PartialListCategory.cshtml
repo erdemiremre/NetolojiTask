@@ -1,0 +1,128 @@
+﻿@using Entities.Concrete;
+@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "PartialListCategory";
+}
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Kategori Listesi</h4>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Kategori Adı</th>
+                    <th>Açıklama</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <button class="btn btn-danger" id="@item.CategoryId" onclick="DeleteCategory(@item.CategoryId)">Sil</button>
+                        <button class="btn  btn-warning" id="@item.CategoryId" onclick="UpdateCategory(@item.CategoryId)">Güncelle</button>
+                    
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="AddProduct()">Ekle</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Open()">Kapat</button>
+    </div>
+</div>
+<script>
+
+    function Open() {
+        $("#productList").html('');
+    }
+
+    function DeleteCategory(id) {
+
+        swal({
+            title: "Emin misin?",
+            text: "Birkez sildiğinde buna ulaşamayacaksın!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let find = document.getElementById(id).parentNode.parentNode;
+                    debugger
+                    let dene = id.toString();
+                    let categoryId = id.toString();
+/*                    find.parentNode.removeChild(find);*/
+                    $.ajax({
+                        url: "/Categories/Delete?id=" + id,
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            debugger
+                            console.log(data);
+                            find.parentNode.removeChild(find);
+                        },
+                        error: function () {
+                            console.log("error!");
+                        }
+                    })
+                    swal("Silindi", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Dosyanız güvende!");
+                }
+            });
+
+
+    }
+
+    function UpdateCategory(id) {
+        swal({
+            title: "Emin misin?",
+            text: "Güncellemek istiyor musun?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let find = document.getElementById(id).parentNode.parentNode;
+                    let updateCategory = id;
+                    debugger
+                    $.ajax({
+                        url: "/Categories/Add",
+                        type: "GET",
+                        success: function (data) {
+                            debugger
+                            $("#productAdd").html(data);
+                        },
+                        error: function () {
+                            console.log("error!");
+                        }
+                    })
+                    swal("Silindi", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Güncelleme işlemi iptal edildi.!");
+                }
+            });
+    }
+
+
+</script>
+
