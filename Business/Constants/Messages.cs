@@ -15,6 +15,15 @@ namespace Business.Constants
         public static string CategoryDeleted = "Kategori Silindi";
         public static string CategoryUpdated = "Kategori Güncellendi.";
 
+        //Supplier for
+
+        public static string SuppliersList = "Personeller listelendi.";
+        public static string SupplierListed = "Personel listelendi.";
+        public static string SupplierAdded = "Personel eklendi.";
+        public static string SupplierDeleted = "Personel Silindi";
+        public static string SupplierUpdated = "Personel Güncellendi.";
+
+
         //Employee for
 
         public static string EmployeeAdded = "Yeni çalışan eklendi.";
