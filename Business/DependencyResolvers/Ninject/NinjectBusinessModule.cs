@@ -22,6 +22,10 @@ namespace Business.DependencyResolvers.Ninject
             Bind<IEmployeeService>().To<EmployeeManager>().InSingletonScope();
             Bind<IEmployeeDal>().To<AdEmployeeDal>().InSingletonScope();
 
+            //Supplier for
+            Bind<ISupplierService>().To<SupplierManager>().InSingletonScope();
+            Bind<ISupplierDal>().To<AdSupplierDal>().InSingletonScope();
+
             //Category for
             Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
             Bind<ICategoryDal>().To<AdCategoryDal>().InSingletonScope();
