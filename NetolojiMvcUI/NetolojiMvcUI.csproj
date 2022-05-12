@@ -180,6 +180,8 @@
     <Content Include="Views\Shared\PartialListEmployee.cshtml" />
     <Content Include="Views\Suppliers\Index.cshtml" />
     <Content Include="Views\Suppliers\PartialAddSupplier.cshtml" />
+    <Content Include="Views\Suppliers\PartialListSupplier.cshtml" />
+    <Content Include="Views\Suppliers\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Tedarikçi Paneli</h2>
+<br />
+<h3>Tedarikçi Paneli</h3>
 
 <html>
 <head>
@@ -19,17 +20,18 @@
 <body>
 
     <div class="container mt-3">
-        <button type="button" class="btn btn-primary" onclick="GetEmployeeAdd()">
-            Personel Ekle
+        <button type="button" style="margin-left:700px;" class="btn btn-primary" onclick="GetSupplierAdd()">
+            Tedarikçi Oluştur
         </button>
-        <button type="button" class="btn btn-dark" onclick="GetEmployeeList()">
-            Personel Listele
+        <button type="button" class="btn btn-warning" style="margin-left:5px;" onclick="GetSupplierList()">
+            Tedarikçileri Listele
         </button>
-
     </div>
     <br />
     <div class="container">
         <div class="row">
+
+            <div class="col-md-3" id="productAdd"></div>
             <div class="col-md-9">
                 <div class="mb-3">
                     <label for="filterText" class="form-label">Tedarikçi Ara</label>
@@ -76,75 +78,11 @@
             </div>
 
 
-            <div class="col-md-3" id="productAdd"></div>
+
 
         </div>
 
     </div>
-
-
-
-    <div class="modal" id="NewProduct">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Ürün Ekleme Penceresi</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="KategoriAd">Ürün Adı</label>
-                        <input class="form-control" data-val="true" data-val-length="DepartmanAd alanı uzunluğu en fazla 30 olan bir dize olmalıdır." data-val-length-max="30" id="newProductName" name="newProductName" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="KategoriAd">Kategori ID</label>
-                        <input class="form-control" data-val="true" id="newProductCategory" name="newProductCategory" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="KategoriAd">Stok Adedi</label>
-                        <input class="form-control" data-val="true" id="newProductUnitStok" name="newProductUnitStok" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="KategoriAd">Fiyatı</label>
-                        <input class="form-control" data-val="true" id="newProductPrice" name="newProductPrice" type="text" value="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" onclick="AddProduct()">Ekle</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="UpdateEmployee">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Personel Güncelleme</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="KategoriAd">Personel Adi</label>
-                        <input class="form-control" data-val="true" data-val-length="DepartmanAd alanı uzunluğu en fazla 30 olan bir dize olmalıdır." data-val-length-max="30" id="UpdatePersonelAd" name="UpdatePersonelAd" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="KategoriAd">Personel Soyadı</label>
-                        <input class="form-control" data-val="true" id="UpdatePersonelSoyad" name="UpdatePersonelSoyad" type="text" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="KategoriAd">Görevi</label>
-                        <input class="form-control" data-val="true" id="UpdatePersonelGorev" name="UpdatePersonelGorev" type="text" value="">
-                    </div>
-                    <br />
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-update="" onclick="UpdateEmployee()">Güncelle</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeUpdateEmployee()">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <script>
 
@@ -158,22 +96,34 @@
                 error: function () {
                     console.log("error!");
                 }
-            })
-
-
-
-        //Arama kismini sayfa postback olmadan yapilmasi..
-        const searchInput = document.getElementById('search');
-        const rows = document.querySelectorAll('tbody tr')
-        console.log(searchInput);
-
-        searchInput.addEventListener('keyup', function (event) {
-            //console.log(event);
-            const q = event.target.value.toLowerCase();
-            rows.forEach(row => {
-                row.querySelector('td').textContent.toLowerCase().startsWith(q) ? (row.style.display = "") : (row.style.display = "none");
             });
-        })
+        }
+            function GetSupplierAdd() {
+                debugger
+                $.ajax({
+                    url: "/Suppliers/Add",
+                    type: "GET",
+                    success: function (data) {
+                        $("#productAdd").html(data);
+                    },
+                    error: function () {
+                        console.log("error!");
+                    }
+                });
+            }
+
+            //Arama kismini sayfa postback olmadan yapilmasi..
+            const searchInput = document.getElementById('search');
+            const rows = document.querySelectorAll('tbody tr')
+            console.log(searchInput);
+
+            searchInput.addEventListener('keyup', function (event) {
+                //console.log(event);
+                const q = event.target.value.toLowerCase();
+                rows.forEach(row => {
+                    row.querySelector('td').textContent.toLowerCase().startsWith(q) ? (row.style.display = "") : (row.style.display = "none");
+                });
+            })
 
     </script>
 

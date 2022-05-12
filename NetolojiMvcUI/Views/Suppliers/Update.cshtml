@@ -1,0 +1,51 @@
+﻿@model Entities.Concrete.Supplier
+@{
+    ViewBag.Title = "Update";
+}
+<br />
+<h2>Tedarikçi Güncelleme</h2>
+@using (Html.BeginForm("Update", "Suppliers", FormMethod.Post))
+{
+    <div class="col-md-9">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.HiddenFor(m => m.SupplierId)</td>
+                    <td>@Html.HiddenFor(m => m.SupplierId)</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(m => m.CompanyName)</td>
+                    <td> @Html.TextBoxFor(m => m.CompanyName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.ContactName)</td>
+                    <td>@Html.TextBoxFor(m => m.ContactName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.ContactTitle)</td>
+                    <td>@Html.TextBoxFor(m => m.ContactTitle)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Address)</td>
+                    <td>@Html.TextBoxFor(m => m.Address)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Phone)</td>
+                    <td>@Html.TextBoxFor(m => m.Phone)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>  <button type="submit" onclick="" class="btn btn-success">Güncelle</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+}
+
