@@ -126,6 +126,7 @@
     <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +178,7 @@
     <Content Include="Views\Employees\PartialAddEmployee.cshtml" />
     <Content Include="Views\Employees\Update.cshtml" />
     <Content Include="Views\Shared\PartialListEmployee.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
