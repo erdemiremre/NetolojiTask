@@ -62,8 +62,10 @@
   <ItemGroup>
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IEmployeeDal.cs" />
+    <Compile Include="Abstract\ISupplierDal.cs" />
     <Compile Include="Concrete\AdoNet\AdCategoryDal.cs" />
     <Compile Include="Concrete\AdoNet\AdEmployeeDal.cs" />
+    <Compile Include="Concrete\AdoNet\AdSupplierDal.cs" />
     <Compile Include="Concrete\AdoNet\Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
