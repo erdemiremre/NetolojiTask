@@ -8,7 +8,7 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Personel Listesi</h4>
+        <h4 class="modal-title">Tedarikçi Listesi</h4>
     </div>
     <div class="modal-body">
         <table class="table">
@@ -34,7 +34,7 @@
                     <td>@item.Address</td>
                     <td>@item.Phone</td>
                     <td>
-                        <a href="/Employees/Update/@item.SupplierId" class="btn btn-warning">Güncelle</a>
+                        <a href="/Suppliers/Update/@item.SupplierId" class="btn btn-warning">Güncelle</a>
                         <button class="btn btn-danger" id="@item.SupplierId" onclick="DeleteSupplier(@item.SupplierId)">Sil</button>
                     </td>
                 </tr>

@@ -7,7 +7,7 @@
 
 <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Tedarikçi Ekleme Penceresi</h4>
+        <h5 class="modal-title">Tedarikçi Ekleme Penceresi</h5>
 
     </div>
     
@@ -52,6 +52,11 @@
         let contactTitle = $('#newContacTitle').val();
         let address = $('#newAddress').val();
         let phone = $('#newPhone').val();
+
+        if (companyName == '' || companyName.length<2) {
+            swal("Bilgilerinizi eksik girdiniz", "", "error");
+        }
+        else {
         debugger
         $.ajax({
             url: "/Suppliers/Add",
@@ -75,6 +80,7 @@
                 console.log("error!");
             }
         })
+        }
     }
 
 </script>

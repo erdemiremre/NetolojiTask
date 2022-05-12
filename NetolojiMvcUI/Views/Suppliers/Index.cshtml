@@ -23,7 +23,7 @@
         <button type="button" style="margin-left:700px;" class="btn btn-primary" onclick="GetSupplierAdd()">
             Tedarikçi Oluştur
         </button>
-        <button type="button" class="btn btn-warning" style="margin-left:5px;" onclick="GetSupplierList()">
+        <button type="button" id="getSupplierList" class="btn btn-warning" style="margin-left:5px;" onclick="GetSupplierList()">
             Tedarikçileri Listele
         </button>
     </div>
@@ -86,6 +86,59 @@
 
     <script>
 
+        function Close() {
+            $("#productList").html('');
+        }
+
+
+        $("#getSupplierList").click(function () {
+
+            let homeTable = document.getElementById('tableIndex')
+            homeTable.innerHTML = "";
+
+        })
+
+
+        function DeleteSupplier(id) {
+
+            swal({
+                title: "Emin misin?",
+                text: "Birkez sildiğinde buna ulaşamayacaksın!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        let find = document.getElementById(id).parentNode.parentNode;
+                        debugger
+                        let dene = id.toString();
+                        let categoryId = id.toString();
+                        /*                    find.parentNode.removeChild(find);*/
+                        $.ajax({
+                            url: "/Suppliers/Delete?id=" + id,
+                            type: "POST",
+                            dataType: "json",
+                            success: function (data) {
+                                debugger
+                                console.log(data);
+                                find.parentNode.removeChild(find);
+                            },
+                            error: function () {
+                                console.log("error!");
+                            }
+                        })
+                        swal("Silindi", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Dosyanız güvende!");
+                    }
+                });
+
+
+        }
+
         function GetSupplierList() {
             $.ajax({
                 url: "/Suppliers/GetAll",
@@ -111,6 +164,9 @@
                     }
                 });
             }
+
+
+
 
             //Arama kismini sayfa postback olmadan yapilmasi..
             const searchInput = document.getElementById('search');
