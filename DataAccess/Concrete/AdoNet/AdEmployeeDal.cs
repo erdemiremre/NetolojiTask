@@ -39,7 +39,7 @@ namespace DataAccess.Concrete.AdoNet
                 SqlCommand cmd = new SqlCommand("gp_EmployeeDelete ", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@EmoloyeeId", entity.EmployeeId);
+                cmd.Parameters.AddWithValue("@EmployeeId", entity.EmployeeId);
                 cmd.ExecuteNonQuery();
 
             }
@@ -100,7 +100,7 @@ namespace DataAccess.Concrete.AdoNet
                 SqlCommand cmd = new SqlCommand("gp_EmployeeUpdate  ", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@EmployeeId", entity.EmployeeId);
-                cmd.Parameters.AddWithValue("@FirtsName", entity.FirstName);
+                cmd.Parameters.AddWithValue("@FirstName", entity.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", entity.LastName);
                 cmd.Parameters.AddWithValue("@Title", entity.Title);
                 cmd.ExecuteNonQuery();

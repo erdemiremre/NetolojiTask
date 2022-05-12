@@ -66,7 +66,7 @@
                                     </button>
 
                                     <a href="/Employees/Update/@item.EmployeeId" class="btn btn-warning">Güncelle</a>
-                                    <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteCategory(@item.EmployeeId)">Sil</button>
+                                    <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteEmployee(@item.EmployeeId)">Sil</button>
                                 </td>
                             </tr>
 
@@ -327,12 +327,11 @@
         })
 
 
-
-        function DeleteCategory(id) {
+        function DeleteEmployee(id) {
 
             swal({
                 title: "Emin misin?",
-                text: "Birkez sildiğinde bu veriye bir daha ulaşamayacaksın!",
+                text: "Birkez sildiğinde buna ulaşamayacaksın!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -340,17 +339,11 @@
                 .then((willDelete) => {
                     if (willDelete) {
                         let find = document.getElementById(id).parentNode.parentNode;
-                        debugger
-                        let dene = id.toString();
-                        let categoryId = id.toString();
-                        /*                    find.parentNode.removeChild(find);*/
                         $.ajax({
-                            url: "/Categories/Delete?id=" + id,
+                            url: "/Employees/Delete?id=" + id,
                             type: "POST",
                             dataType: "json",
                             success: function (data) {
-                                debugger
-                                console.log(data);
                                 find.parentNode.removeChild(find);
                             },
                             error: function () {
@@ -361,13 +354,12 @@
                             icon: "success",
                         });
                     } else {
-                        swal("Silme işlemi iptal edildi.Verileriniz güvende!");
+                        swal("Dosyanız güvende!");
                     }
                 });
 
 
         }
-
 
         $('#modalAc').on('click', function (e) {
             let personelAdi = $(this).attr('data-adi');

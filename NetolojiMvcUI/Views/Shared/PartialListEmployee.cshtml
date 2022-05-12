@@ -39,7 +39,7 @@
                         </button>
 
                         <a href="/Employees/Update/@item.EmployeeId" class="btn btn-warning">Güncelle</a>
-                        <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteCategory(@item.EmployeeId)">Sil</button>
+                        <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteEmployee(@item.EmployeeId)">Sil</button>
                     </td>
                 </tr>
 
@@ -59,6 +59,44 @@
         $("#productList").html('');
     }
 
+    function DeleteEmployee(id) {
 
+        swal({
+            title: "Emin misin?",
+            text: "Birkez sildiğinde buna ulaşamayacaksın!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let find = document.getElementById(id).parentNode.parentNode;
+                    debugger
+                    let dene = id.toString();
+                    let categoryId = id.toString();
+                    /*                    find.parentNode.removeChild(find);*/
+                    $.ajax({
+                        url: "/Employees/Delete?id=" + id,
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            debugger
+                            console.log(data);
+                            find.parentNode.removeChild(find);
+                        },
+                        error: function () {
+                            console.log("error!");
+                        }
+                    })
+                    swal("Silindi", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Dosyanız güvende!");
+                }
+            });
+
+
+    }
 
 </script>

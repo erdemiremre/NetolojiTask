@@ -52,5 +52,14 @@ namespace NetolojiMvcUI.Controllers
             var result = _employeeService.GetAll();
             return PartialView("PartialListEmployee", result.Data);
         }
+
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var find = _employeeService.Get(id);
+            var result = _employeeService.Delete(find.Data);
+            return Json(result.Success);
+        }
     }
 }
