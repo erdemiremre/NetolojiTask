@@ -46,5 +46,11 @@ namespace NetolojiMvcUI.Controllers
             _employeeService.Update(employee);
             return RedirectToAction("Index", "Employees");
         }
+
+        public ActionResult GetAll()
+        {
+            var result = _employeeService.GetAll();
+            return PartialView("PartialListEmployee", result.Data);
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Business.Concrete
             {
                 return new ErrorResult();
             }
-
+            _employeeDal.Add(employee);
             return new SuccessResult(Messages.EmployeeAdded);
         }
 

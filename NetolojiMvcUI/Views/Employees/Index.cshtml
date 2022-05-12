@@ -58,12 +58,15 @@
                                 <td>@item.LastName</td>
                                 <td>@item.Title</td>
                                 <td>
-                                    <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteCategory(@item.EmployeeId)">Sil</button>
+
                                     @*<button class="btn  btn-warning" id="@item.CategoryId" onclick="UpdateCategory(@item.CategoryId)">Güncelle</button>*@
                                     @*<a data-adi="@item.FirstName" data-soyadi="@item.LastName" data-id="@item.EmployeeId" data-title="@item.Title" id='modalAc' data-toggle='modal' data-target='#UpdateEmployee' class="btn btn-warning">Güncelle</a>*@
-                                    <button type="button"  onclick="deneme(@item.EmployeeId)"  class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#UpdateEmployee" data-adi="@item.FirstName" data-soyadi="@item.LastName" data-id="@item.EmployeeId" data-title="@item.Title">
-                                        Güncelle
+                                    <button type="button" @*id="modalAc"*@ onclick="deneme(@item.EmployeeId)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#UpdateEmployee" data-adi="@item.FirstName" data-soyadi="@item.LastName" data-id="@item.EmployeeId" data-title="@item.Title">
+                                        GüncellePP
                                     </button>
+
+                                    <a href="/Employees/Update/@item.EmployeeId" class="btn btn-warning">Güncelle</a>
+                                    <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteCategory(@item.EmployeeId)">Sil</button>
                                 </td>
                             </tr>
 
@@ -366,7 +369,7 @@
         }
 
 
-        $("#modalAc").on('click', function (e) {
+        $('#modalAc').on('click', function (e) {
             let personelAdi = $(this).attr('data-adi');
             let personelSoyadi = $(this).attr('data-soyadi');
             let personelId = $(this).attr('data-id');
@@ -378,6 +381,12 @@
             $('#UpdateEmployee').attr('data-update', personelId);
             debugger;
         })
+
+        function deneme(id) {
+
+            let denemeAd = document.getElementById(id);
+            console.log(denemeAd)
+        }
 
     </script>
 

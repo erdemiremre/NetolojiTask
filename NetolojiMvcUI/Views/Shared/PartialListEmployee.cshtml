@@ -1,0 +1,64 @@
+﻿@using Entities.Concrete;
+@model IEnumerable<Employee>
+
+@{
+    ViewBag.Title = "PartialListEmployee";
+}
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Personel Listesi</h4>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Personel Adı</th>
+                    <th>Personel Soyadı</th>
+                    <th>Görevi</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    @*<td>@item.CategoryId</td>*@
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Title</td>
+                    <td>
+
+                        @*<button class="btn  btn-warning" id="@item.CategoryId" onclick="UpdateCategory(@item.CategoryId)">Güncelle</button>*@
+                        @*<a data-adi="@item.FirstName" data-soyadi="@item.LastName" data-id="@item.EmployeeId" data-title="@item.Title" id='modalAc' data-toggle='modal' data-target='#UpdateEmployee' class="btn btn-warning">Güncelle</a>*@
+                        <button type="button" @*id="modalAc"*@ onclick="deneme(@item.EmployeeId)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#UpdateEmployee" data-adi="@item.FirstName" data-soyadi="@item.LastName" data-id="@item.EmployeeId" data-title="@item.Title">
+                            GüncellePP
+                        </button>
+
+                        <a href="/Employees/Update/@item.EmployeeId" class="btn btn-warning">Güncelle</a>
+                        <button class="btn btn-danger" id="@item.EmployeeId" onclick="DeleteCategory(@item.EmployeeId)">Sil</button>
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="AddProduct()">Ekle</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Close()">Kapat</button>
+    </div>
+</div>
+
+
+<script>
+    function Close() {
+        $("#productList").html('');
+    }
+
+
+
+</script>

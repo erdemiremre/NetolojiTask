@@ -24,22 +24,22 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-success" onclick="AddEmployee()">Ekle</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Open()">Kapat</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Close()">Kapat</button>
         </div>
     </div>
 </div>
 
 <script>
 
-    function Open() {
+    function Close() {
         $("#productAdd").html('');
     }
 
-    function AddCategory() {
+    function AddEmployee() {
         let firstName = $('#newFirstName').val();
         let lastName = $('#newLastName').val();
         let title = $('#newTitle').val();
-
+        debugger
         $.ajax({
             url: "/Employees/Add",
             type: "POST",
@@ -48,14 +48,15 @@
             success: function (data) {
                 if (data) {
                     GetEmployeeList();
+
                 } else {
                     swal("Aynı isimli personel mevcuttur.", "", "error");
                 }
-
                 console.log(data);
                 firstName = "";
                 lastName = "";
                 title = "";
+                
             },
             error: function () {
                 console.log("error!");

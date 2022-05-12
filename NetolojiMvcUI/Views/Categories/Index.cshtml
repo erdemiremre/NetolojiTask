@@ -57,9 +57,10 @@
                                 <td>@item.CategoryName</td>
                                 <td>@item.Description</td>
                                 <td>
-                                    <button class="btn btn-danger" id="@item.CategoryId" onclick="DeleteCategory(@item.CategoryId)">Sil</button>
+
                                     @*<button class="btn  btn-warning" id="@item.CategoryId" onclick="UpdateCategory(@item.CategoryId)">Güncelle</button>*@
                                     <a href="/Categories/Update/@item.CategoryId" class="btn btn-warning">Güncelle</a>
+                                    <button class="btn btn-danger" id="@item.CategoryId" onclick="DeleteCategory(@item.CategoryId)">Sil</button>
 
                                 </td>
                             </tr>

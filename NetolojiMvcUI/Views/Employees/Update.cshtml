@@ -1,7 +1,45 @@
-﻿
+﻿@model Entities.Concrete.Employee
 @{
     ViewBag.Title = "Update";
 }
+<br />
+<h2>Personel Güncelle</h2>
+@using (Html.BeginForm("Update", "Employees", FormMethod.Post))
+{
+    <div class="col-md-9">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.HiddenFor(m => m.EmployeeId)</td>
+                    <td>@Html.HiddenFor(m => m.EmployeeId)</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(m => m.FirstName)</td>
+                    <td> @Html.TextBoxFor(m => m.FirstName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.LastName)</td>
+                    <td>@Html.TextBoxFor(m => m.LastName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Title)</td>
+                    <td>@Html.TextBoxFor(m => m.Title)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>  <button type="submit" onclick="" class="btn btn-success">Güncelle</button></td>
+                </tr>
+            </tbody>
+        </table>
 
-<h2>Update</h2>
+
+    </div>
+
+}
 
