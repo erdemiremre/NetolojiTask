@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IEmployeeService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\EmployeeManager.cs" />
     <Compile Include="Constants\Messages.cs" />
     <Compile Include="DependencyResolvers\Ninject\NinjectBusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

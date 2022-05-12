@@ -15,5 +15,13 @@ namespace Business.Constants
         public static string CategoryDeleted = "Kategori Silindi";
         public static string CategoryUpdated = "Kategori Güncellendi.";
 
+        //Employee for
+
+        public static string EmployeeAdded = "Yeni çalışan eklendi.";
+        public static string EmployeeDeleted = "Calisan Silindi";
+        public static string EmployeeListed = "Çalışan listelendi.";
+        public static string EmployeesListed = "Çalışanlar listelendi.";
+        public static string EmployeeUpdated = "Çalışan Güncellendi.";
+
     }
 }

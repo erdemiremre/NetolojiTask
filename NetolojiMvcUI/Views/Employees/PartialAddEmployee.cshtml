@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "PartialAddEmployee";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Personel Ekleme Penceresi</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="KategoriAd">Personel Adı</label>
+            <input class="form-control" data-val="true" id="newFirstName" name="newFirstName" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Personel Soyadı</label>
+            <input class="form-control" data-val="true" id="newLastName" name="newLastName" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Personel Görevi</label>
+            <input class="form-control" data-val="true" id="newTitle" name="newTitle" type="text" value="">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="AddEmployee()">Ekle</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Open()">Kapat</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function Open() {
+        $("#productAdd").html('');
+    }
+
+    function AddCategory() {
+        let firstName = $('#newFirstName').val();
+        let lastName = $('#newLastName').val();
+        let title = $('#newTitle').val();
+
+        $.ajax({
+            url: "/Employees/Add",
+            type: "POST",
+            dataType: "json",
+            data: { FirstName: firstName, LastName: lastName, Title: title },
+            success: function (data) {
+                if (data) {
+                    GetEmployeeList();
+                } else {
+                    swal("Aynı isimli personel mevcuttur.", "", "error");
+                }
+
+                console.log(data);
+                firstName = "";
+                lastName = "";
+                title = "";
+            },
+            error: function () {
+                console.log("error!");
+            }
+        })
+    }
+
+</script>

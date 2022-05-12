@@ -18,12 +18,15 @@ namespace Business.DependencyResolvers.Ninject
             //Product for
 
 
-            //User for
-
+            //Employee for
+            Bind<IEmployeeService>().To<EmployeeManager>().InSingletonScope();
+            Bind<IEmployeeDal>().To<AdEmployeeDal>().InSingletonScope();
 
             //Category for
             Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
             Bind<ICategoryDal>().To<AdCategoryDal>().InSingletonScope();
+
+
 
         }
     }
