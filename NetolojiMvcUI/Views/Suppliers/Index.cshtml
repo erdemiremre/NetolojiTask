@@ -148,7 +148,17 @@
 
     <script>
 
-
+        function GetSupplierList() {
+            $.ajax({
+                url: "/Suppliers/GetAll",
+                type: "GET",
+                success: function (data) {
+                    $("#productList").html(data);
+                },
+                error: function () {
+                    console.log("error!");
+                }
+            })
 
 
 

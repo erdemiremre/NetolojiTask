@@ -20,5 +20,17 @@ namespace NetolojiMvcUI.Controllers
             var result = _supplierService.GetAll();
             return View(result.Data);
         }
+
+        public ActionResult Add()
+        {
+            return PartialView("PartialAddSupplier");
+        }
+
+        public ActionResult GetAll()
+        {
+            var result = _supplierService.GetAll();
+            return PartialView("PartialListSupplier", result.Data);
+        }
+
     }
 }

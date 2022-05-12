@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "PartialAddSupplier";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Tedarikçi Ekleme Penceresi</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="KategoriAd">Şirket Adı</label>
+            <input class="form-control" data-val="true" id="newCompanyName" name="newCompanyName" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">İletişim</label>
+            <input class="form-control" data-val="true" id="newContactName" name="newContactName" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Açıklama</label>
+            <input class="form-control" data-val="true" id="newContacTitle" name="newContacTitle" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Adres</label>
+            <input class="form-control" data-val="true" id="newAddress" name="newAddress" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="KategoriAd">Telefon</label>
+            <input class="form-control" data-val="true" id="newPhone" name="newPhone" type="text" value="">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="AddSupplier()">Ekle</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="Close()">Kapat</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function Close() {
+        $("#productAdd").html('');
+    }
+
+    function AddSupplier() {
+        let companyName = $('#newCompanyName').val();
+        let contactName = $('#newContactName').val();
+        let contactTitle = $('#newContacTitle').val();
+        let address = $('#newAddress').val();
+        let phone = $('#newPhone').val();
+        debugger
+        $.ajax({
+            url: "/Suppliers/Add",
+            type: "POST",
+            dataType: "json",
+            data: { CompanyName: companyName, ContactName: contactName, ContactTitle: contactTitle, Phone: phone, Address: address },
+            success: function (data) {
+                if (data) {
+                    GetSupplierList();
+
+                } else {
+                    swal("Aynı isimli personel mevcuttur.", "", "error");
+                }
+                console.log(data);
+                firstName = "";
+                lastName = "";
+                title = "";
+
+            },
+            error: function () {
+                console.log("error!");
+            }
+        })
+    }
+
+</script>
