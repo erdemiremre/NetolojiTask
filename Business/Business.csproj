@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\IEmployeeService.cs" />
+    <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ISupplierService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\EmployeeManager.cs" />
