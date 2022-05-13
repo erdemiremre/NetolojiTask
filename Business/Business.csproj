@@ -50,6 +50,7 @@
     <Compile Include="Abstract\ISupplierService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\EmployeeManager.cs" />
+    <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\SupplierManager.cs" />
     <Compile Include="Constants\Messages.cs" />
     <Compile Include="DependencyResolvers\Ninject\NinjectBusinessModule.cs" />
