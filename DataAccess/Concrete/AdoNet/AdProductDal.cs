@@ -145,5 +145,67 @@ namespace DataAccess.Concrete.AdoNet
             return productDtos;
 
         }
+
+        //  Raf ömrünün dolmasına 1 hafta kalmış olan ürünleri listeleyen method
+        public List<ProductDetailDto> GetProductsWithShelfLifeOfOneWeek()
+        {
+            List<ProductDetailDto> productDetailDtos = new List<ProductDetailDto>();
+            using (SqlConnection conn = new SqlConnection(Conn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("gp_GetProductsWithShelfLifeOfOneWeek ", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ProductDetailDto productDetailDto = new ProductDetailDto
+                    {
+                        ProductId = Convert.ToInt32(dr[0]),
+                        ProductName = (dr[1]).ToString(),
+                        CompanyName = (dr[2]).ToString(),
+                        UnitPrice = Convert.ToInt16(dr[3]),
+                        ExprationDate = Convert.ToDateTime(dr[4]),
+                        BarKodNo = Convert.ToInt16(dr[5]),
+                        ShelfLife = Convert.ToInt16(dr[6]),
+                        StockInDate= Convert.ToDateTime(dr[7]),
+                    };
+                    productDetailDtos.Add(productDetailDto);
+                }
+            }
+            return productDetailDtos;
+        }
+
+        //   --Miktarı eksik gelen siparişlerin listesi veren method--
+
+        public List<ProductQuantityDto> GetProductsWithMissingQuantity()
+        {
+            List<ProductQuantityDto> productQuantityDtos = new List<ProductQuantityDto>();
+
+            using (SqlConnection conn = new SqlConnection(Conn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("gp_GetProductsWithMissingQuantity ", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ProductQuantityDto productQuantityDto = new ProductQuantityDto
+                    {
+                        ProductId = Convert.ToInt32(dr[0]),
+                        ProductName = (dr[1]).ToString(),
+                        BarKodNo = Convert.ToInt16(dr[2]),
+                        QuantityOrder = Convert.ToInt16(dr[3]),
+                        QuantityReceive = Convert.ToInt16(dr[4]),
+                    };
+                    productQuantityDtos.Add(productQuantityDto);
+                }
+            }
+            return productQuantityDtos;
+
+        }
+
     }
+
+
+
 }

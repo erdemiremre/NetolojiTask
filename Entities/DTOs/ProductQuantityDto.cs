@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs
 {
-    public class ProductDto
+    public class ProductQuantityDto
     {
         public int ProductId { get; set; }
-        public string CompanyName { get; set; }
         public string ProductName { get; set; }
-        public short UnitPrice { get; set; }
-        public DateTime ExprationDate { get; set; }
+        public short BarKodNo { get; set; }
+        public short QuantityOrder { get; set; }
+        public short QuantityReceive { get; set; }
 
     }
 }
