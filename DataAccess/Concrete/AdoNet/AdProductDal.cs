@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -115,6 +116,34 @@ namespace DataAccess.Concrete.AdoNet
                 cmd.Parameters.AddWithValue("@UnitPrice", entity.UnitPrice);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+
+        // 	Son kullanma tarihinin dolmasına 1 ay kalan ürünleri veren Method
+        public List<ProductDto> GetProductsWithOneMonth()
+        {
+            List<ProductDto> productDtos = new List<ProductDto>();
+            using (SqlConnection conn = new SqlConnection(Conn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("gp_GetProductsWithOneMonth ", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ProductDto productDto = new ProductDto
+                    {
+                        ProductId = Convert.ToInt32(dr[0]),
+                        ProductName = (dr[1]).ToString(),
+                        CompanyName = (dr[2]).ToString(),
+                        UnitPrice = Convert.ToInt16(dr[3]),
+                        ExprationDate=Convert.ToDateTime(dr[4])
+                    };
+                    productDtos.Add(productDto);
+                }
+            }
+            return productDtos;
+
         }
     }
 }
